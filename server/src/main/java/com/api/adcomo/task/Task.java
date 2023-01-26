@@ -1,5 +1,6 @@
 package com.api.adcomo.task;
 
+import com.api.adcomo.category.Category;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -23,6 +24,9 @@ public class Task {
     private LocalDateTime createdAt;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Task(UUID id, String title, String description, Boolean done, LocalDateTime deadLine, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
