@@ -1,12 +1,14 @@
 package com.api.adcomo.task;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class TaskDto {
     private String title;
     private String description;
     private Boolean done;
     private LocalDateTime deadLine;
+    private UUID categoryId;
 
     public String getTitle() {
         return title;
@@ -38,5 +40,13 @@ public class TaskDto {
 
     public void setDeadLine(LocalDateTime deadLine) {
         this.deadLine = deadLine;
+    }
+
+    public UUID getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(UUID categoryId) {
+        this.categoryId = categoryId;
     }
 }

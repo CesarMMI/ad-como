@@ -1,6 +1,9 @@
 package com.api.adcomo.task;
 
+import com.api.adcomo.category.Category;
+import com.api.adcomo.category.CategoryService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +18,10 @@ import java.util.UUID;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/tasks")
 public class TaskController {
-    private final TaskService taskService;
-
-    public TaskController(TaskService taskService) {
-        this.taskService = taskService;
-    }
+    @Autowired
+    TaskService taskService;
+    @Autowired
+    CategoryService categoryService;
 
     @GetMapping
     public ResponseEntity<List<Task>> getAll() {
@@ -37,11 +39,12 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<Task> create(@RequestBody TaskDto taskDto) {
+    public ResponseEntity<Object> create(@RequestBody TaskDto taskDto) {
         Task task = new Task();
         BeanUtils.copyProperties(taskDto, task);
         task.setDone(false);
         task.setCreatedAt(LocalDateTime.now(ZoneId.of("UTC")));
+
         return ResponseEntity.status(HttpStatus.CREATED).body(this.taskService.save(task));
     }
 
@@ -58,6 +61,17 @@ public class TaskController {
         task.setCreatedAt(taskOptional.get().getCreatedAt());
         task.setUpdatedAt(LocalDateTime.now(ZoneId.of("UTC")));
 
+        if(taskDto.getCategoryId() != null){
+            Optional<Category> categoryOptional = categoryService.findById(taskDto.getCategoryId());
+            System.out.println(categoryOptional.get());
+            if (categoryOptional.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Category not found");
+            }
+
+            task.setCategory(categoryOptional.get());
+        }
+
+        System.out.println(task);
         return ResponseEntity.status(HttpStatus.CREATED).body(this.taskService.save(task));
     }
 

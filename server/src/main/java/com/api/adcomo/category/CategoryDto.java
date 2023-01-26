@@ -1,15 +1,15 @@
 package com.api.adcomo.category;
 
 public class CategoryDto {
-    private String title;
+    private String name;
     private String color;
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getColor() {
