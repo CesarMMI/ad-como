@@ -1,4 +1,4 @@
-package com.api.admetamserver;
+package com.api.adcomo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

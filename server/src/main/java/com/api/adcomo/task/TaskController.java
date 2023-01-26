@@ -1,4 +1,4 @@
-package com.api.admetamserver.task;
+package com.api.adcomo.task;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;

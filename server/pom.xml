@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.api</groupId>
-	<artifactId>ad-metam-server</artifactId>
+	<artifactId>ad-como</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ad-metam-server</name>
+	<name>ad-como</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>

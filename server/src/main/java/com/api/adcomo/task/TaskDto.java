@@ -1,4 +1,4 @@
-package com.api.admetamserver.task;
+package com.api.adcomo.task;
 
 import java.time.LocalDateTime;
 
