@@ -1,0 +1,10 @@
+<div class="w-full h-full flex flex-col items-center justify-center" *ngIf="!addItem; else addButton">
+    <fa-icon [classes]="['fa-xl']" [icon]="icon"></fa-icon>
+    <span class="text-current text-sm">{{ label }}</span>
+</div>
+
+<ng-template #addButton>
+    <div class="w-full h-full flex flex-col items-center justify-center">
+        <fa-icon [classes]="['text-5xl']" [icon]="icon"></fa-icon>
+    </div>
+</ng-template>
