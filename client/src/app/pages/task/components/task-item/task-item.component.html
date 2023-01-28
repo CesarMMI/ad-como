@@ -1,0 +1,10 @@
+<div class="bg-neutral-800 rounded p-2" (click)="onClick()">
+    <div>
+        <app-category-chip
+            *ngIf="task.category"
+            [category]="task.category"
+        ></app-category-chip>
+    </div>
+    <span class="text-lg">{{ task.title }}</span>
+    <p class="text-neutral-400 text-xs">{{ task.description }}</p>
+</div>

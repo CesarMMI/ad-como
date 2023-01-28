@@ -1,0 +1,22 @@
+<ng-container *ngIf="tasksVM$ | async as tasksVM">
+    <div class="flex flex-col">
+        <app-task-runner
+            class="mb-4"
+            [taskTitle]="tasksVM.currTask?.title"
+        ></app-task-runner>
+        <div class="flex flex-col">
+            <span class="mb-2 text-lg font-medium text-neutral-400">Today</span>
+            <app-task-item
+                [task]="task"
+                (onSelect)="onSelect($event)"
+                *ngFor="let task of tasksVM.tasks"
+                class="border rounded mb-4 ml-2"
+                [ngClass]="
+                    tasksVM.currTask?.id == task.id
+                        ? 'border-violet-500'
+                        : 'border-neutral-800'
+                "
+            ></app-task-item>
+        </div>
+    </div>
+</ng-container>

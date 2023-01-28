@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { bufferTime, debounce, debounceTime } from "rxjs";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
     selector: "app-header",
@@ -9,19 +8,5 @@ import { bufferTime, debounce, debounceTime } from "rxjs";
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-    title?: string;
-
-    constructor(private router: Router) {
-      this.onRouteChange()
-    }
-    
-    protected onRouteChange() {
-      this.router.events.pipe(
-      ).subscribe((event: any) => {
-          if (event.url) {
-              console.log(event.url);
-          }
-      });
-
-    }
+    protected faBars = faBars;
 }

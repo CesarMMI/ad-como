@@ -1,0 +1,14 @@
+<button
+    [disabled]="disabled"
+    class="flex p-2 justify-center w-full rounded"
+    [ngClass]="{
+        'opacity-50': disabled,
+        'bg-violet-900': color == 'violet'
+    }"
+>
+    <span *ngIf="label" class="mx-auto">{{ label }}</span>
+    <fa-icon
+        *ngIf="icon"
+        [icon]="icon"
+    ></fa-icon>
+</button>
