@@ -1,0 +1,11 @@
+<div class="bg-neutral-100 flex justify-between items-stretch px-8 pt-4">
+    <app-button
+        direction="vertical"
+        [icon]="item.icon"
+        [label]="item.label"
+        [classArr]="item.classes"
+        [iconClassArr]="item.iconClasses"
+        *ngFor="let item of items"
+        (click)="item.click()"
+    ></app-button>
+</div>

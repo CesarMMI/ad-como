@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { faAdd } from "@fortawesome/free-solid-svg-icons";
 import { combineLatest, map, Observable } from "rxjs";
 import { ITask } from "src/app/shared/models/task";
 import { TaskService } from "../../services/task.service";
@@ -9,23 +10,11 @@ import { TaskService } from "../../services/task.service";
 })
 export class TaskListComponent {
 
-    protected tasksVM$: Observable<{
-        tasks: ITask[];
-        currTask: ITask | undefined;
-    }>;
-    
+    protected faAdd = faAdd;
+
+    protected tasks$: Observable<ITask[]>; 
     constructor(private taskService: TaskService) {
-        this.tasksVM$ = combineLatest([
-            taskService.get(),
-            taskService.getCurrTask(),
-        ]).pipe(
-            map(([tasks, currTask]) => {
-                return {
-                    tasks,
-                    currTask,
-                };
-            })
-        );
+        this.tasks$ = taskService.get();
     }
 
     protected onSelect(task: ITask) {

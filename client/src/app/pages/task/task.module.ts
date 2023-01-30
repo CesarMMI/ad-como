@@ -7,6 +7,7 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
 import { CategoryChipComponent } from './components/category-chip/category-chip.component';
 import { TaskRunnerComponent } from './components/task-runner/task-runner.component';
 import { ButtonModule } from 'src/app/shared/components/button/button.module';
+import { ModalModule } from 'src/app/shared/components/modal/modal.module';
 
 
 @NgModule({

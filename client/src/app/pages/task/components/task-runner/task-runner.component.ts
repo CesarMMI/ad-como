@@ -1,5 +1,8 @@
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
-import { faAngleDoubleRight, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
+import { map, Observable } from "rxjs";
+
+import { TaskService } from "../../services/task.service";
 
 @Component({
     selector: "app-task-runner",
@@ -8,6 +11,12 @@ import { faAngleDoubleRight, faChevronRight } from "@fortawesome/free-solid-svg-
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskRunnerComponent {
-    @Input() taskTitle?: string;
     protected icon = faAngleDoubleRight;
+    protected taskTitle$: Observable<string>;
+
+    constructor(taskService: TaskService) {
+        this.taskTitle$ = taskService
+            .getCurrTask()
+            .pipe(map((res) => (res ? res.title : "Select a task to start")));
+    }
 }
