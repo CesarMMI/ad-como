@@ -18,7 +18,6 @@ import { ModalModule } from "./shared/components/modal/modal.module";
         HeaderModule,
         HttpClientModule,
         NavBarModule,
-        ModalModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

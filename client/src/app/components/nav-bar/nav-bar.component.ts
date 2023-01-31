@@ -1,6 +1,15 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { faAdd, faListCheck, faTags } from "@fortawesome/free-solid-svg-icons";
-import { ModalService } from "src/app/shared/components/modal/modal.service";
+import {
+    faAdd,
+    faListCheck,
+    faTags,
+    IconDefinition,
+} from "@fortawesome/free-solid-svg-icons";
+
+export interface INavBarItem {
+    icon: IconDefinition;
+    label: string;
+}
 
 @Component({
     selector: "app-nav-bar",
@@ -9,40 +18,42 @@ import { ModalService } from "src/app/shared/components/modal/modal.service";
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavBarComponent {
+    constructor() {}
 
-    constructor(private modalService: ModalService){}
-
-    protected onAddClick() {
-        this.modalService.toggleShow();
-    }
-
-    protected defaultClasses = ["text-xs", "w-20", "h-full"];
+    protected defaultClasses: string[] = [
+        "w-full",
+        "h-full",
+        "p-1",
+        "gap-1",
+        "text-xs",
+        "items-center",
+        "flex-col-reverse",
+    ];
     protected items = [
         {
-            icon: faListCheck,
-            label: "Tasks",
+            icon: faTags,
+            label: "Categories",
             classes: this.defaultClasses,
-            iconClasses: [],
-            click: () => {}
+            iconClasses: ['fa-xl'],
         },
         {
             icon: faAdd,
             classes: [
                 ...this.defaultClasses,
+                'border-8',
+                'border-neutral-200',
+                "rounded-full",
                 "bg-neutral-800",
                 "text-neutral-100",
-                "rounded-none",
-                "rounded-t-3xl",
+                "-translate-y-1/3",
             ],
-            iconClasses: ["fa-xl"],
-            click: () => this.onAddClick()
+            iconClasses: ['fa-2xl'],
         },
         {
-            icon: faTags,
-            label: "Categories",
+            icon: faListCheck,
+            label: "Tasks",
             classes: this.defaultClasses,
-            iconClasses: [],
-            click: () => {}
+            iconClasses: ['fa-xl'],
         },
     ];
 }
