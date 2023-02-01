@@ -6,7 +6,7 @@ import { TaskService } from "../../services/task.service";
 
 @Component({
     templateUrl: "./task-list.component.html",
-    styles: [],
+    styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent {
 

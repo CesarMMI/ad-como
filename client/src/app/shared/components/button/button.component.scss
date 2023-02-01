@@ -1,0 +1,29 @@
+.button {
+    padding: 0.66rem;
+    font-size: 1.1rem;
+
+    gap: 0.33rem;
+    display: flex;
+
+    border: none;
+    border-radius: 0.33rem;
+    
+    color: rgb(var(--color-base-lg));
+    background: rgb(var(--color-accent-dk));
+
+    cursor: pointer;
+    transition: .1s ease-in-out;
+
+    &.raised {
+        box-shadow: .1rem .1rem .33rem rgb(var(--color-accent-lg));
+    }
+
+    &.text {
+        color: rgb(var(--color-accent-dk));
+        background: transparent;
+    }
+
+    &:active {
+        box-shadow: none;
+    }
+}

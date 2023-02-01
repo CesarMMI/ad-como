@@ -1,0 +1,34 @@
+.wrapper {
+    padding: 1rem;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .header__title {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: rgb(var(--color-accent-md));
+        }
+        
+        .header__back {
+            ::ng-deep .button {
+                padding: 0;
+                color: rgb(var(--color-accent-md));
+            }
+        }
+    }
+
+    .form {
+        padding: 2rem 0;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        input {
+            padding: .33rem .66rem;
+            font-size: 1.2rem;
+        }
+    }
+}

@@ -1,4 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Lato:display=swap");
+
+:root {
+    --color-base-lg: 250 250 250;
+    --color-base-md: 245 245 245;
+    --color-base-dk: 238 238 238;
+
+    --color-accent-lg: 97 97 97;
+    --color-accent-md: 66 66 66;
+    --color-accent-dk: 33 33 33;
+
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    background: rgb(var(--color-base-dk));
+}

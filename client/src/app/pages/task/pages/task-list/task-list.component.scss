@@ -1,0 +1,18 @@
+.wrapper {
+    padding: 1rem;
+
+    .list {
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .add_btn {
+        bottom: 0;
+        left: 50%;
+        translate: -50%;
+        position: fixed;
+
+        margin-bottom: 1rem;
+    }
+}

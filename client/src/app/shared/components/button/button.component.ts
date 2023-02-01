@@ -4,16 +4,17 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
-  styles: [
-  ],
+  styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent {
   @Input() label?: string;
+
   @Input() icon?: IconDefinition
-  @Input() direction: 'vertical' | 'horizontal' = 'horizontal'
+  @Input() iconPos: 'right' | 'left' = 'left'
+
+  @Input() type: 'flat' | 'raised' | 'text' = 'raised';
   
-  @Input() classArr: string[] = [];
   @Input() iconClassArr: string[] = [];
 
   
