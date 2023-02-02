@@ -1,0 +1,26 @@
+<mat-toolbar>
+  <span>AdComo</span>
+  <span class="divider"></span>
+  <button mat-icon-button>
+    <mat-icon>settings</mat-icon>
+  </button>
+</mat-toolbar>
+
+<ng-container *ngIf="tasks$ | async as tasks">
+  <div class="list">
+    <app-task-card
+      [task]="task"
+      (onDelete)="onDelete($event)"
+      *ngFor="let task of tasks"
+    ></app-task-card>
+  </div>
+</ng-container>
+
+<button
+  mat-fab
+  color="primary"
+  class="add__button"
+  [routerLink]="['..', 'add']"
+>
+  <mat-icon>add</mat-icon>
+</button>

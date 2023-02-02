@@ -1,0 +1,42 @@
+<mat-toolbar>
+  <span>AdComo</span>
+  <span class="divider"></span>
+  <button mat-icon-button [routerLink]="['..', 'home']">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="wrapper">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" formControlName="title" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Description</mat-label>
+      <textarea
+        rows="3"
+        matInput
+        placeholder="description"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Dead Line</mat-label>
+      <input
+        matInput
+        formControlName="deadLine"
+        placeholder="Dead Line"
+        [matDatepicker]="picker"
+      />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div>
+      <button mat-flat-button type="submit" color="primary">Save</button>
+    </div>
+  </form>
+</div>

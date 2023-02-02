@@ -1,28 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~normalize.css';
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
-
-:root {
-    --color-background: 240 240 240;
-    --color-text: 15 15 15; 
-    --color-surface: 225 225 225;
-    --color-primary: 103 50 183; 
-}
-:root.dark {
-    --color-background: 15 15 15;
-    --color-surface: 30 30 30;
-    --color-text: 240 240 240; 
-    --color-primary: 103 50 183; 
-}
 
 * {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-body {
-    background: rgb(var(--color-background));
-    font-family: "Lato", sans-serif;
+mat-toolbar {
+  background: transparent !important;
+
+  .divider {
+    flex: 1 1 auto;
+  }
 }

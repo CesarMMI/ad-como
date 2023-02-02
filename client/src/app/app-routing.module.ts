@@ -1,24 +1,24 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-    { path: "", redirectTo: "task", pathMatch: "full" },
-    {
-        path: "task",
-        loadChildren: () =>
-            import("./pages/task/task.module").then((m) => m.TaskModule),
-    },
-    {
-        path: "category",
-        loadChildren: () =>
-            import("./pages/category/category.module").then(
-                (m) => m.CategoryModule
-            ),
-    },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'add',
+    loadChildren: () =>
+      import('./pages/task-form/task-form.module').then(
+        (m) => m.TaskFormModule
+      ),
+  },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

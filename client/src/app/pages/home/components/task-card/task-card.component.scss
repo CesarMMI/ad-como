@@ -1,0 +1,27 @@
+.card {
+  padding: .66rem;
+  display: flex;
+  flex-direction: row;
+
+  .side {
+    mat-icon{
+      opacity: .5;
+      width: 1.2rem;
+      height: 1.2rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  .content {
+    padding: 0;
+
+    flex-grow: 1;
+    span {
+      display: block;
+    }
+
+    small {
+      opacity: 0.5;
+    }
+  }
+}

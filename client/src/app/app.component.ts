@@ -1,14 +1,8 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-    selector: "app-root",
-    template: `
-        <main style="width: 100vw; height: 100vh;">
-            <router-outlet></router-outlet>
-        </main>
-    `,
-    styles: [],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-    title = "ad-como";
-}
+export class AppComponent { }
