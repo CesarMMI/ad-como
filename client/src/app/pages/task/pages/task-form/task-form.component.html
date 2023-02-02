@@ -9,7 +9,22 @@
         >
         </app-button>
     </header>
-    <form class="form">
-        <input placeholder="Title" />
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+        <app-input-text
+            placeholder="Title"
+            [control]="form.controls['title']"
+        ></app-input-text>
+        <app-input-text-area
+            placeholder="Description"
+            [control]="form.controls['description']"
+        ></app-input-text-area>
+        <app-input-date
+            placeholder="Dead Line"
+            [control]="form.controls['deadLine']"
+        ></app-input-date>
+        <app-button
+            label="Enviar"
+            [submit]="true"
+        ></app-button>
     </form>
 </div>

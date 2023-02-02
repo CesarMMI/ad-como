@@ -1,4 +1,4 @@
-<button [class]="['button', type]" [disabled]="disabled">
+<button [class]="['button', type, color]" [disabled]="disabled" [type]="submit ? 'submit' : 'button'">
     <fa-icon
         *ngIf="icon && iconPos == 'left'"
         [icon]="icon"

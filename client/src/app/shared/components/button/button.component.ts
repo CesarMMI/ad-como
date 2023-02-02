@@ -12,11 +12,11 @@ export class ButtonComponent {
 
   @Input() icon?: IconDefinition
   @Input() iconPos: 'right' | 'left' = 'left'
-
-  @Input() type: 'flat' | 'raised' | 'text' = 'raised';
-  
   @Input() iconClassArr: string[] = [];
 
+  @Input() type: 'flat' | 'raised' | 'text' = 'flat';
+  @Input() color: 'surface' | 'primary' = 'primary';
   
   @Input() disabled: boolean = false;
+  @Input() submit: boolean = false;
 }

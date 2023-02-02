@@ -12,7 +12,10 @@
         left: 50%;
         translate: -50%;
         position: fixed;
-
         margin-bottom: 1rem;
+
+        :ng-deep .button {
+            color: var(--color-text);
+        }
     }
 }
