@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { TaskCardModule } from './components/task-card/task-card.module';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -15,6 +16,7 @@ import { TaskCardModule } from './components/task-card/task-card.module';
     HomeRoutingModule,
     MatIconModule,
     MatButtonModule,
+    MatMenuModule,
     MatToolbarModule,
     TaskCardModule,
   ],

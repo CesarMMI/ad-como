@@ -8,6 +8,7 @@ import { ITask } from 'src/app/models/task';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskCardComponent {
+  @Output() onEdit = new EventEmitter<ITask>();
   @Output() onDelete = new EventEmitter<ITask>();
 
   @Input() task!: ITask;

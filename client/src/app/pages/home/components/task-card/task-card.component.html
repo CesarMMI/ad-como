@@ -9,7 +9,7 @@
 </mat-card>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>
+  <button mat-menu-item (click)="onEdit.emit(task)">
     <mat-icon>edit</mat-icon>
     <span>Edit</span>
   </button>

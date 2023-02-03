@@ -15,6 +15,20 @@ const routes: Routes = [
         (m) => m.TaskFormModule
       ),
   },
+  {
+    path: 'edit',
+    loadChildren: () =>
+      import('./pages/task-form/task-form.module').then(
+        (m) => m.TaskFormModule
+      ),
+  },
+  {
+    path: 'categories',
+    loadChildren: () =>
+      import('./pages/categories-list/categories-list.module').then(
+        (m) => m.CategoriesListModule
+      ),
+  },
 ];
 
 @NgModule({
