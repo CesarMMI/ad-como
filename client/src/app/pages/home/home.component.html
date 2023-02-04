@@ -1,42 +1,46 @@
-<mat-toolbar>
-  <span>AdComo</span>
-  <span class="divider"></span>
-  <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>menu</mat-icon>
-  </button>
-</mat-toolbar>
-
 <ng-container *ngIf="tasks$ | async as tasks">
-  <div class="list">
-    <app-task-card
-      [task]="task"
-      (onEdit)="onEdit($event)"
-      (onDelete)="onDelete($event)"
-      *ngFor="let task of tasks"
-    ></app-task-card>
+  <div class="wrapper">
+    <app-task-column
+      title="Do"
+      cdkDropList
+      #doList="cdkDropList"
+      [cdkDropListData]="tasks[0]"
+      [cdkDropListConnectedTo]="[doingList, doneList]"
+      (cdkDropListDropped)="onDrag($event)"
+    >
+      <app-task-card
+        cdkDrag
+        [task]="item"
+        *ngFor="let item of tasks[0]"
+      ></app-task-card>
+    </app-task-column>
+    <app-task-column
+      title="Doing"
+      cdkDropList
+      #doingList="cdkDropList"
+      [cdkDropListData]="tasks[1]"
+      [cdkDropListConnectedTo]="[doList, doneList]"
+      (cdkDropListDropped)="onDrag($event)"
+    >
+      <app-task-card
+        cdkDrag
+        [task]="item"
+        *ngFor="let item of tasks[1]"
+      ></app-task-card>
+    </app-task-column>
+    <app-task-column
+      title="Done"
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="tasks[2]"
+      [cdkDropListConnectedTo]="[doList, doingList]"
+      (cdkDropListDropped)="onDrag($event)"
+    >
+      <app-task-card
+        cdkDrag
+        [task]="item"
+        *ngFor="let item of tasks[2]"
+      ></app-task-card>
+    </app-task-column>
   </div>
 </ng-container>
-
-<button
-  mat-fab
-  color="primary"
-  class="add__button"
-  (click)="onAdd()"
->
-  <mat-icon>add</mat-icon>
-</button>
-
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>home</mat-icon>
-    <span>Home</span>
-  </button>
-  <button mat-menu-item [routerLink]="['..','categories']">
-    <mat-icon>bookmarks</mat-icon>
-    <span>Categories</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>logout</mat-icon>
-    <span>Logout</span>
-  </button>
-</mat-menu>

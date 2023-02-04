@@ -52,13 +52,16 @@ export class TaskService {
     );
   }
 
-  public update(task: ITask): Observable<ITask> {
+  public update(task: ITask, notify: boolean = true): Observable<ITask> {
     return this.http
-      .put<ITask>(`http://localhost:3030/tasks/${task.id}`, task)
+      .put<ITask>(`http://localhost:3030/tasks/${task.id}`, {
+        ...task,
+        categoryId: task.category?.id ?? null,
+      })
       .pipe(
         first(),
         tap((response) => {
-          this.showSnack('Task updated');
+          if (notify) this.showSnack('Task updated');
           this.tasks$.next(
             this.tasks$.value.map((task) =>
               task.id === response.id ? response : task

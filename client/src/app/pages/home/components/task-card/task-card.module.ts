@@ -1,26 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TaskCardComponent } from './task-card.component';
+import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import {MatMenuModule} from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
 
-
+import { TaskCardComponent } from './task-card.component';
 
 @NgModule({
-  declarations: [
-    TaskCardComponent
-  ],
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatIconModule
-  ],
-  exports: [
-    TaskCardComponent
-  ]
+  declarations: [TaskCardComponent],
+  imports: [CommonModule, MatCardModule, MatChipsModule],
+  exports: [TaskCardComponent],
 })
-export class TaskCardModule { }
+export class TaskCardModule {}

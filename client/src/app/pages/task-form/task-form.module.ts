@@ -24,8 +24,6 @@ import { TaskFormComponent } from './task-form.component';
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule,
   ],
-  providers: [MatDatepickerModule],
 })
 export class TaskFormModule {}

@@ -1,27 +1,26 @@
-.card {
-  padding: .66rem;
-  display: flex;
-  flex-direction: row;
-
-  .side {
-    mat-icon{
-      opacity: .5;
-      width: 1.2rem;
-      height: 1.2rem;
-      font-size: 1.2rem;
-    }
+.navbar {
+  &__wrapper {
+    gap: 0.66rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
   }
 
-  .content {
-    padding: 0;
+  &__deadLine {
+    opacity: .66;
+    font-size: .66rem;
+  }
 
-    flex-grow: 1;
-    span {
-      display: block;
-    }
+  &__title {
+    line-height: 1.2rem;
+    font-size: 1.2rem;
+  }
 
-    small {
-      opacity: 0.5;
-    }
+  &__category {
+    opacity: .8;
+    font-size: 0.8rem;
+    padding: 0.33rem;
+    border-radius: 0.33rem;
+    width: min-content;
   }
 }

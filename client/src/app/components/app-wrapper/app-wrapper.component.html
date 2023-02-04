@@ -1,0 +1,32 @@
+<mat-drawer-container class="container">
+  <mat-drawer mode="side" opened>
+    <div class="drawer">
+      <span class="drawer__title">Ad Como</span>
+
+      <div
+        class="drawer__link"
+        [routerLink]="['/home']"
+        routerLinkActive="active"
+      >
+        <mat-icon class="drawer__link__icon">home</mat-icon>
+        <span class="drawer__link__text">Home</span>
+      </div>
+      <div
+        class="drawer__link"
+        [routerLink]="['/categories']"
+        routerLinkActive="active"
+      >
+        <mat-icon class="drawer__link__icon">bookmarks</mat-icon>
+        <span class="drawer__link__text">Categories</span>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content class="content">
+    <mat-toolbar class="content__toolbar">
+      <span>{{ title | async }}</span>
+    </mat-toolbar>
+    <div class="content__child">
+      <ng-content></ng-content>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

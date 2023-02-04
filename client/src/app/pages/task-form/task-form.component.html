@@ -1,8 +1,8 @@
-<mat-toolbar>
-  <span>AdComo</span>
+ <mat-toolbar>
+  <span>{{title}} Task</span>
   <span class="divider"></span>
-  <button mat-icon-button [routerLink]="['..', 'home']">
-    <mat-icon>arrow_back</mat-icon>
+  <button mat-icon-button (click)="close()">
+    <mat-icon>close</mat-icon>
   </button>
 </mat-toolbar>
 

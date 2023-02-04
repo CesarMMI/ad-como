@@ -1,20 +1,15 @@
-<mat-card class="card">
-  <mat-card-content class="content">
-    <span>{{ task.title }}</span>
-    <small>{{ task.description }}</small>
-  </mat-card-content>
-  <div class="side">
-    <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+<mat-card class="mat-app-background">
+  <div class="navbar__wrapper">
+    <span class="navbar__deadLine" *ngIf="task.deadLine">{{ task.deadLine | date }}</span>
+    <span class="navbar__title">{{ task.title }}</span>
+    <div
+      *ngIf="task.category"
+      [ngStyle]="{ backgroundColor: task.category.color }"
+      class="navbar__category"
+    >
+      <span [ngStyle]="{color: getCategoryTextColor(task.category.color)}">
+        {{ task.category.name }}
+      </span>
+    </div>
   </div>
 </mat-card>
-
-<mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="onEdit.emit(task)">
-    <mat-icon>edit</mat-icon>
-    <span>Edit</span>
-  </button>
-  <button mat-menu-item (click)="onDelete.emit(task)">
-    <mat-icon>delete</mat-icon>
-    <span>Delete</span>
-  </button>
-</mat-menu>
