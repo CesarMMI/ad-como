@@ -6,7 +6,7 @@ import java.util.UUID;
 public class TaskDto {
     private String title;
     private String description;
-    private Boolean done;
+    private Integer state;
     private LocalDateTime deadLine;
     private UUID categoryId;
 
@@ -26,12 +26,12 @@ public class TaskDto {
         this.description = description;
     }
 
-    public Boolean getDone() {
-        return done;
+    public Integer getState() {
+        return state;
     }
 
-    public void setDone(Boolean done) {
-        this.done = done;
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public LocalDateTime getDeadLine() {

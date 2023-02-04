@@ -1,7 +1,6 @@
 package com.api.adcomo.task;
 
 import com.api.adcomo.category.Category;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -18,7 +17,7 @@ public class Task {
     @Column()
     private String description;
     @Column(nullable = false)
-    private Boolean done;
+    private Integer state;
     @Column(name = "dead_line")
     private LocalDateTime deadLine;
     @Column(name = "created_at", nullable = false, updatable = false)
@@ -29,11 +28,11 @@ public class Task {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
-    public Task(UUID id, String title, String description, Boolean done, LocalDateTime deadLine, LocalDateTime createdAt, LocalDateTime updatedAt, Category category) {
+    public Task(UUID id, String title, String description, Integer state, LocalDateTime deadLine, LocalDateTime createdAt, LocalDateTime updatedAt, Category category) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.done = done;
+        this.state = state;
         this.deadLine = deadLine;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -67,12 +66,12 @@ public class Task {
         this.description = description;
     }
 
-    public Boolean getDone() {
-        return done;
+    public Integer getState() {
+        return state;
     }
 
-    public void setDone(Boolean done) {
-        this.done = done;
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public LocalDateTime getDeadLine() {
@@ -109,7 +108,16 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" + "id=" + id + ", title='" + title + '\'' + ", description='" + description + '\'' + ", done=" + done + ", deadLine=" + deadLine + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", category=" + category + '}';
+        return "Task{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", state=" + state +
+                ", deadLine=" + deadLine +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", category=" + category +
+                '}';
     }
 
     @Override
@@ -117,11 +125,11 @@ public class Task {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return Objects.equals(id, task.id) && Objects.equals(title, task.title) && Objects.equals(description, task.description) && Objects.equals(done, task.done) && Objects.equals(deadLine, task.deadLine) && Objects.equals(createdAt, task.createdAt) && Objects.equals(updatedAt, task.updatedAt) && Objects.equals(category, task.category);
+        return Objects.equals(id, task.id) && Objects.equals(title, task.title) && Objects.equals(description, task.description) && state == task.state && Objects.equals(deadLine, task.deadLine) && Objects.equals(createdAt, task.createdAt) && Objects.equals(updatedAt, task.updatedAt) && Objects.equals(category, task.category);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, done, deadLine, createdAt, updatedAt, category);
+        return Objects.hash(id, title, description, state, deadLine, createdAt, updatedAt, category);
     }
 }

@@ -42,8 +42,16 @@ public class TaskController {
     public ResponseEntity<Object> create(@RequestBody TaskDto taskDto) {
         Task task = new Task();
         BeanUtils.copyProperties(taskDto, task);
-        task.setDone(false);
+        task.setState(0);
         task.setCreatedAt(LocalDateTime.now(ZoneId.of("UTC")));
+
+        if(taskDto.getCategoryId() != null){
+            try {
+                BeanUtils.copyProperties(this.taskService.save(task, taskDto.getCategoryId()), task);
+            } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            }
+        }else BeanUtils.copyProperties(this.taskService.save(task), task);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(this.taskService.save(task));
     }
@@ -62,17 +70,14 @@ public class TaskController {
         task.setUpdatedAt(LocalDateTime.now(ZoneId.of("UTC")));
 
         if(taskDto.getCategoryId() != null){
-            Optional<Category> categoryOptional = categoryService.findById(taskDto.getCategoryId());
-            System.out.println(categoryOptional.get());
-            if (categoryOptional.isEmpty()) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Category not found");
+            try {
+                BeanUtils.copyProperties(this.taskService.save(task, taskDto.getCategoryId()), task);
+            } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
             }
+        }else BeanUtils.copyProperties(this.taskService.save(task), task);
 
-            task.setCategory(categoryOptional.get());
-        }
-
-        System.out.println(task);
-        return ResponseEntity.status(HttpStatus.CREATED).body(this.taskService.save(task));
+        return ResponseEntity.status(HttpStatus.CREATED).body(task);
     }
 
     @DeleteMapping("/{id}")

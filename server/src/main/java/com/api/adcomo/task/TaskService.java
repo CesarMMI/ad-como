@@ -3,6 +3,8 @@ package com.api.adcomo.task;
 import com.api.adcomo.category.Category;
 import com.api.adcomo.category.CategoryRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,8 +34,12 @@ public class TaskService {
         return this.taskRepository.save(task);
     }
     @Transactional
-    public Task save(Task task, UUID categoryId) {
+    public Task save(Task task, UUID categoryId) throws Exception {
         Optional<Category> categoryOptional = categoryRepository.findById(categoryId);
+        if (categoryOptional.isEmpty())
+            throw new Exception("Category not found");
+        task.setCategory(categoryOptional.get());
+
         return this.taskRepository.save(task);
     }
 
